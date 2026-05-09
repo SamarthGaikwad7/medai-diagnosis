@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard - MedAI Diagnosis</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    padding: 40px;
+    background: linear-gradient(135deg,#eef2ff,#dbeafe,#c7d2fe,#a5b4fc,#8b5cf6);
+    color: #1e293b;
+}
+
+.container {
+    max-width: 850px;
+    margin: auto;
+    padding: 35px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.9);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    background: linear-gradient(90deg,#6366f1,#8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.chart-container {
+    width: 280px;
+    margin: 25px auto;
+}
+
+.result-box {
+    text-align: left;
+    background: #f8fafc;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.btn {
+    padding: 10px 18px;
+    border-radius: 25px;
+    color: white;
+    text-decoration: none;
+}
+.bmi-box{
+    margin-top:20px;
+    padding:18px;
+    border-radius:15px;
+    background: rgba(255,255,255,0.7);
+    text-align:center;
+    color:#1e293b;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.bmi-box h3{
+    margin-bottom:10px;
+    color:#6366f1;
+}
+.recommendation-box{
+    margin-top:25px;
+    text-align:left;
+}
+
+.tip-card{
+    background:white;
+    padding:15px;
+    margin-top:15px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.tip-card h3{
+    color:#6366f1;
+    margin-bottom:10px;
+}
+
+.tip-card ul{
+    padding-left:20px;
+}
+
+.tip-card li{
+    margin-bottom:8px;
+    color:#334155;
+}
+.recommendation-section{
+    margin-top:30px;
+    text-align:left;
+}
+
+.recommend-card{
+    background:white;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.recommend-card{
+    background: rgba(255,255,255,0.7);
+    padding: 18px;
+    border-radius: 15px;
+    margin-top: 15px;
+    text-align: left;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.recommend-card h3{
+    color: #6366f1;
+    margin-bottom: 10px;
+}
+
+.recommend-card ul{
+    padding-left: 18px;
+}
+
+.recommend-card li{
+    margin-bottom: 6px;
+    color: #334155;
+}
+.btn-primary { background: linear-gradient(45deg,#6366f1,#8b5cf6); }
+.btn-danger { background: linear-gradient(45deg,#ef4444,#dc2626); }
+.btn-download { background: linear-gradient(45deg,#22c55e,#16a34a); }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>MedAI Dashboard</h1>
+
+{% if report is not none and report.diagnosis %}
+
+<div class="chart-container">
+    <canvas id="healthChart"></canvas>
+</div>
+
+<div class="result-box">
+    {% for disease, value in report.diagnosis.items() %}
+        <p><strong>{{ disease }}:</strong> {{ value }}%</p>
+    {% endfor %}
+</div>
+
+<p>Report generated on: {{ report.created_at }}</p>
+
+{% else %}
+
+<p style="margin-top:20px;">
+    ⚠️ No report available. Please do diagnosis first.
+</p>
+
+{% endif %}
+
+<p>Payment valid until: {{ valid_until }}</p>
+
+<div class="buttons">
+    <a href="/diagnosis_form" class="btn btn-primary">New Diagnosis</a>
+    <a href="/logout" class="btn btn-danger">Logout</a>
+    <a href="/download_report" class="btn btn-download">Download Report</a>
+</div>
+<div class="bmi-box">
+    <h3>BMI Analysis</h3>
+
+    <p><strong>BMI:</strong> {{ bmi }}</p>
+
+    <p>
+        <strong>Status:</strong>
+        {{ bmi_status }}
+    </p>
+
+</div>
+<!-- ================= HEALTH RECOMMENDATIONS ================= -->
+
+<div class="recommendation-section">
+
+    <h2 style="text-align:center; margin-top:30px;">
+        Health Recommendations
+    </h2>
+
+    {% if recommendations and recommendations|length > 0 %}
+
+        {% for disease, tips in recommendations.items() %}
+
+        <div class="recommend-card">
+
+            <!-- Disease Name -->
+            <h3>{{ disease }}</h3>
+
+            <!-- Recommended -->
+            <div class="recommend-box">
+
+                <h4>✅ Recommended</h4>
+
+                <ul>
+                    {% for tip in tips %}
+                        <li>{{ tip }}</li>
+                    {% endfor %}
+                </ul>
+
+            </div>
+
+            <!-- Avoid -->
+            <div class="avoid-box">
+
+                <h4>❌ Avoid This</h4>
+
+                <ul>
+
+                    {% if disease.lower() == 'diabetes' %}
+                        <li>Sugary foods</li>
+                        <li>Soft drinks</li>
+                        <li>Junk food</li>
+
+                    {% elif disease.lower() == 'cardiovascular' %}
+                        <li>Smoking</li>
+                        <li>Stress</li>
+                        <li>Oily foods</li>
+
+                    {% elif disease.lower() == 'ckd' %}
+                        <li>High salt foods</li>
+                        <li>Processed foods</li>
+
+                    {% elif disease.lower() == 'hypertension' %}
+                        <li>Alcohol</li>
+                        <li>Stress</li>
+                        <li>Excess sodium</li>
+
+                    {% endif %}
+
+                </ul>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <p style="margin-top:20px; text-align:center; color:#475569;">
+            No recommendations available.
+        </p>
+
+    {% endif %}
+
+</div>
+
+{% if report is not none and report.diagnosis %}
+<script>
+new Chart(document.getElementById('healthChart'), {
+    type: 'doughnut',
+    data: {
+        labels: [{% for d in report.diagnosis.keys() %}"{{ d }}",{% endfor %}],
+        datasets: [{
+            data: [{% for v in report.diagnosis.values() %}{{ v }},{% endfor %}],
+            backgroundColor: ["#6366f1","#8b5cf6","#22c55e","#ef4444"]
+        }]
+    }
+});
+</script>
+{% endif %}
+
+</body>
+</html>

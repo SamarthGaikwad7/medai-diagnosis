@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedAI Diagnosis</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            /* 🔥 LIGHT IEEE STYLE GRADIENT */
+            background: linear-gradient(
+                135deg,
+                #eef2ff,
+                #dbeafe,
+                #c7d2fe,
+                #a5b4fc,
+                #8b5cf6
+            );
+
+            color: #1e293b;
+        }
+
+        .container {
+            max-width: 900px;
+            padding: 40px;
+
+            /* 🔥 SOFT PREMIUM CARD */
+            background: rgba(255, 255, 255, 0.75);
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+
+            /* 🔥 PURPLE GRADIENT TEXT */
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            font-size: 1.05rem;
+            color: #475569;
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            color: #6366f1;
+            font-weight: 600;
+        }
+
+        .buttons {
+            margin-top: 25px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            margin: 10px;
+            font-size: 1rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s ease;
+        }
+
+        /* 🔥 PRIMARY BUTTON */
+        .btn-primary {
+            background: linear-gradient(45deg, #6366f1, #8b5cf6);
+            color: white;
+        }
+
+        /* 🔥 SECONDARY BUTTON */
+        .btn-secondary {
+            border: 1px solid #6366f1;
+            color: #6366f1;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>MedAI Diagnosis</h1>
+
+        <p>
+            Smart, fast, and accurate predictions powered by 
+            <span class="highlight">Artificial Intelligence</span>.
+        </p>
+
+        <p>
+            Detect risks for <span class="highlight">Diabetes</span>, 
+            <span class="highlight">Hypertension</span>, 
+            <span class="highlight">Heart Disease</span>, and 
+            <span class="highlight">Kidney Disease</span>.
+        </p>
+
+        <div class="buttons">
+            <a href="/signup" class="btn btn-primary">Get Started</a>
+            <a href="/login" class="btn btn-secondary">Login</a>
+        </div>
+
+        <footer>
+            © 2026 MedAI Diagnosis | AI Healthcare Platform
+        </footer>
+
+    </div>
+
+</body>
+</html>

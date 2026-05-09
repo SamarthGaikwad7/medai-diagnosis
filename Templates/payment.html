@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - MedAI Diagnosis</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            /* 🎨 SAME IEEE STYLE GRADIENT */
+            background: linear-gradient(
+                135deg,
+                #eef2ff,
+                #dbeafe,
+                #c7d2fe,
+                #a5b4fc,
+                #8b5cf6
+            );
+
+            color: #1e293b;
+        }
+
+        .payment-box {
+            width: 100%;
+            max-width: 420px;
+            padding: 35px;
+            border-radius: 20px;
+
+            /* ✨ Soft premium card */
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+
+            text-align: center;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            font-size: 2rem;
+
+            /* 🎨 Purple gradient text */
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            color: #475569;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin: 20px 0;
+
+            /* 🎨 Purple price */
+            color: #6366f1;
+        }
+
+        .features {
+            text-align: left;
+            margin: 20px 0;
+            color: #475569;
+            font-size: 0.9rem;
+        }
+
+        .features li {
+            margin: 8px 0;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+
+            /* 🎨 SAME BUTTON STYLE */
+            background: linear-gradient(45deg, #6366f1, #8b5cf6);
+            color: white;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .footer-text {
+            margin-top: 15px;
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="payment-box">
+
+        <h1>Upgrade Access</h1>
+        <p class="subtitle">Unlock full AI diagnosis features</p>
+
+        <div class="price">₹83</div>
+
+        <ul class="features">
+            <li>✔ Full disease prediction results</li>
+            <li>✔ Dashboard access</li>
+            <li>✔ 24-hour premium access</li>
+            <li>✔ AI-powered health insights</li>
+        </ul>
+
+        <form action="/payment" method="POST">
+            <button type="submit" class="btn">Pay Now</button>
+        </form>
+
+        <p class="footer-text">
+            Secure payment powered by Stripe
+        </p>
+
+    </div>
+
+</body>
+</html>

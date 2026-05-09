@@ -1,0 +1,87 @@
+/* General body styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* Dashboard header */
+h1 {
+    background-color: #007BFF;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin: 0;
+}
+
+/* Diagnosis report section */
+h3 {
+    color: #007BFF;
+    text-align: center;
+    margin-top: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px auto;
+    width: 50%;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+ul li {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+ul li:last-child {
+    border-bottom: none;
+}
+
+/* Report date */
+p {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Payment validity */
+p:last-of-type {
+    font-weight: bold;
+    color: #007BFF;
+}
+
+/* Links/buttons */
+a {
+    display: inline-block;
+    margin: 10px 10px 0;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    background-color: #007BFF;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+a:hover {
+    background-color: #0056b3;
+}
+
+/* Centering the entire dashboard content */
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}

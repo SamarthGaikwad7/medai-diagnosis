@@ -1,0 +1,90 @@
+/* General body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7fc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+/* Form container styling */
+form {
+    background-color: #ffffff;
+    padding: 30px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Header styling */
+form h1 {
+    color: #007BFF;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* Input fields */
+form input[type="text"],
+form input[type="password"] {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+form input[type="text"]:focus,
+form input[type="password"]:focus {
+    border-color: #007BFF;
+}
+
+/* Submit button */
+form button {
+    background-color: #007BFF;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 90%;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+form button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+form button:active {
+    background-color: #004085;
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    form {
+        padding: 20px 15px;
+    }
+
+    form h1 {
+        font-size: 24px;
+    }
+
+    form input[type="text"],
+    form input[type="password"],
+    form button {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+}

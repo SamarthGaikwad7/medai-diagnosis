@@ -1,0 +1,68 @@
+/* General body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7fc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+    text-align: center;
+}
+
+/* Page header */
+h1 {
+    color: #007BFF;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* Paragraph styling */
+p {
+    font-size: 16px;
+    margin-bottom: 30px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Payment button */
+form .btn {
+    background-color: #28a745;
+    color: #ffffff;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+form .btn:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+form .btn:active {
+    background-color: #1e7e34;
+    transform: translateY(0);
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 22px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    form .btn {
+        font-size: 14px;
+        padding: 10px 16px;
+    }
+}

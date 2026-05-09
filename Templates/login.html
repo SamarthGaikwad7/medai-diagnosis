@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - MedAI Diagnosis</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            /* 🎨 SAME IEEE STYLE GRADIENT */
+            background: linear-gradient(
+                135deg,
+                #eef2ff,
+                #dbeafe,
+                #c7d2fe,
+                #a5b4fc,
+                #8b5cf6
+            );
+
+            color: #1e293b;
+        }
+
+        .login-box {
+            width: 100%;
+            max-width: 400px;
+            padding: 35px;
+            border-radius: 20px;
+
+            /* ✨ Soft premium card */
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+
+            text-align: center;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            font-size: 2rem;
+
+            /* 🎨 Purple gradient text */
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            color: #475569;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border: 1px solid #cbd5f5;
+            outline: none;
+            background: #f8fafc;
+            color: #1e293b;
+            font-size: 0.95rem;
+        }
+
+        input::placeholder {
+            color: #94a3b8;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+
+            /* 🎨 Gradient button */
+            background: linear-gradient(45deg, #6366f1, #8b5cf6);
+            color: white;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .footer-text {
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        .footer-text a {
+            color: #6366f1;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form method="POST" class="login-box">
+
+        <h1>MedAI Diagnosis</h1>
+        <p class="subtitle">Secure login to access your health insights</p>
+
+        <input type="text" name="username" placeholder="Enter Username" required>
+        <input type="password" name="password" placeholder="Enter Password" required>
+
+        <button type="submit" class="btn">Login</button>
+
+        <p class="footer-text">
+            Don’t have an account? <a href="/signup">Sign up</a>
+        </p>
+
+    </form>
+
+</body>
+</html>
